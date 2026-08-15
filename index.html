@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ReelGrab — YouTube ভিডিও ডাউনলোডার</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Hind+Siliguri:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="grain"></div>
+
+<header class="site-head">
+  <div class="mark">
+    <span class="mark-reel"></span>
+    <span class="mark-text">ReelGrab</span>
+  </div>
+  <p class="tagline">লিংক দিন, ফ্রেম বেরিয়ে আসবে।</p>
+</header>
+
+<main>
+  <section class="hero">
+    <h1>যেকোনো YouTube ভিডিও,<br><em>এক ক্লিকে নামিয়ে নিন</em></h1>
+
+    <form id="fetch-form" class="filmstrip-input" autocomplete="off">
+      <div class="sprockets" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <input
+        type="url"
+        id="video-url"
+        name="url"
+        placeholder="https://www.youtube.com/watch?v=..."
+        required
+      >
+      <button type="submit" id="fetch-btn">
+        <span class="btn-label">খুঁজুন</span>
+        <span class="btn-spinner" aria-hidden="true"></span>
+      </button>
+      <div class="sprockets" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </form>
+
+    <p id="error-msg" class="error-msg" hidden></p>
+  </section>
+
+  <section id="result" class="result" hidden>
+    <div class="frame-card">
+      <div class="frame-thumb">
+        <img id="thumb-img" alt="video thumbnail">
+        <span id="duration-badge" class="duration-badge"></span>
+      </div>
+      <div class="frame-meta">
+        <h2 id="video-title">—</h2>
+        <p id="video-uploader" class="uploader"></p>
+
+        <div class="tape">
+          <span class="tape-label">DOWNLOAD</span>
+        </div>
+
+        <div id="format-list" class="format-list"></div>
+
+        <button id="audio-btn" class="audio-btn" type="button">
+          শুধু অডিও (MP3) ডাউনলোড করুন
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section id="loading" class="loading" hidden>
+    <div class="reel-spinner"><div class="reel-hole"></div></div>
+    <p>ভিডিও খোঁজা হচ্ছে...</p>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <p>ব্যক্তিগত ব্যবহারের জন্য। আপনি যে কনটেন্ট ডাউনলোড করছেন তার স্বত্বাধিকার সম্মান করুন।</p>
+</footer>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
